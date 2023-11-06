@@ -1,0 +1,5 @@
+cron:
+- description: "verificar habitacoes expiradas"
+  url: /rentItapp/cron.py
+  schedule: every day 00:01
+  timezone: Europe/Lisbon
