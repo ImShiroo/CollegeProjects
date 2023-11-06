@@ -1,0 +1,547 @@
+.reviews {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 24px;
+    background: #333333;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+
+
+
+/* --------------------- CSS Edit Alojamento ----------------------*/
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+}
+.switchEstado {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 0.5%;
+}
+
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 11%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 1px;
+  top: 7%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3C64B1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.estado {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    grid-template-rows: auto;
+    margin-top: 10%;
+    margin-left: 10vw;
+    top: 15%;
+    color: #373F41;
+}
+
+.imgs2 {
+    max-width: 90%;
+    border: 1px solid black;
+    display: block;
+}
+
+.content2 {
+    color: #373F41;
+    margin-top: 10%;
+}
+
+.button {
+    font-size: 13px;
+}
+
+.content2 .a {
+    display: inline-block;
+    margin-bottom: 2%;
+}
+
+#gerir {
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 16px;
+    background: #3C64B1;
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+#editar {
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 16px;
+    background: white;
+    color: #3C64B1;
+    border: 1px solid #3C64B1;
+    margin: 0px 24px;
+    text-decoration: none;
+}
+
+#eliminar {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 24px;
+    background: #EB5757;
+    border: none;
+    color: white;
+
+}
+
+#reviews {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 24px;
+    background: #333333;
+    border: none;
+    color: white;
+}
+
+.imgb {
+    position: absolute;
+    right:4%;
+    width: 35%;
+    margin-top: -6%;
+}
+
+.iconMess {
+    width: 3%;
+}
+
+#edicao {
+    margin-left: 10vw;
+    margin-top: 2%;
+    color: #373F41;
+    font-size: 15px;
+}
+
+.icon {
+    width: 15%;
+    display: inline-block;
+}
+
+
+.inputstyle {
+    background: rgba(196, 196, 196, 0.5);
+    width: 4%;
+    height: 25px;
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    margin-left: 0.5%;
+}
+
+#descricaop {
+    width: 60%;
+}
+
+#descricao {
+    width: 50%;
+    height: 150px;
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    margin-top: 1%;
+    word-spacing: 2px;
+}
+
+#preco {
+    width: 8% !important;
+    display: inline-block;
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+}
+
+.preco h5{
+    display: inline-block;
+}
+
+#titulo {
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    height: 30px;
+    width: 30%;
+    box-sizing: border-box;
+    margin-top: 1%;
+}
+
+
+#morada {
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    height: 30px;
+    width: 30%;
+    box-sizing: border-box;
+    margin-top: 1%;
+}
+
+.content3 {
+    margin-top: 1%;
+}
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	padding: 2px 9px;
+	border-radius: 3px;
+}
+
+.regular-checkbox:active, .regular-checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+}
+
+.regular-checkbox:checked {
+	border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    background-color: #3C64B1;
+    padding: 2px 4px;
+}
+
+.regular-checkbox:checked:after {
+	content: '\2714';
+	color: white;
+
+}
+
+.faixa {
+    display: inline-block;
+    width: 22%;
+}
+
+#linha {
+    width: 26px;
+    margin: 1%;
+    border: 1px solid #A7A4A4;
+    display: inline-block;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 5%;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin-top: 5%;
+    row-gap: 10%;
+    padding-bottom: 10%;
+}
+
+.servicosextra p {
+    font-size: 12px;
+}
+
+#estadop {
+    font-size: 12px;
+}
+
+.size {
+    font-size: 13px;
+}
+
+#servicos_extra {
+    width: 40%;
+    height: 100px;
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+}
+
+.maisregras {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.extregras {
+    grid-column: span 2;
+    grid-row: 2;
+}
+
+.item {
+    display: inline-block;
+    margin-right: 2%;
+}
+
+label {
+    display: inline;
+}
+
+input[type=checkbox] {
+    display: inline;
+}
+
+#guardar {
+    padding: 12px 18px;
+    background: #219653;
+    color: white;
+    border: none;
+    margin-left: 45vw;
+    margin-top: 5%;
+    text-decoration: none;
+}
+
+#info {
+    font-size: 12px;
+    margin-top: -2%;
+}
+
+.text{
+    display: none;
+    font-size: 10px;
+    position: absolute;
+    margin-top: 0%;
+    background: rgba(51,51,51,0.9);
+    border: 1px solid rgba(34,34,34,0.9);
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    color: #bbb;
+    padding: 5px;
+}
+
+#smoker:hover ~ #smokerText {
+    display: inline-block;
+    margin-left: -5.5%;
+}
+
+#bedroom:hover ~ #bedroomText {
+    display: inline-block;
+    margin-left: -6%;
+}
+
+#wc:hover ~ #wcText {
+    display: inline-block;
+    margin-left: -9%;
+}
+
+#size:hover ~ #sizeText {
+    display: inline-block;
+    margin-left: -6%;
+}
+
+#sun:hover ~ #sunText {
+    display: inline-block;
+    margin-left: -8%;
+}
+
+#pets:hover ~ #petsText {
+    display: inline-block;
+    margin-left: -10.5%;
+}
+
+#wifi:hover ~ #wifiText {
+    display: inline-block;
+    margin-left: -5.6%;
+}
+
+#tv:hover ~ #tvText {
+    display: inline-block;
+    margin-left: -7%;
+}
+
+#fridge:hover ~ #fridgeText {
+    display: inline-block;
+    margin-left: -7%;
+}
+
+#bus:hover ~ #busText {
+    display: inline-block;
+    margin-left: -7%;
+}
+
+#ar:hover ~ #arText {
+    display: inline-block;
+    margin-left: -9%;
+}
+
+#cooker:hover ~ #cookerText {
+    display: inline-block;
+    margin-left: -6%;
+}
+
+#subway:hover ~ #subwayText {
+    display: inline-block;
+    margin-left: -6%;
+}
+
+.description {
+    display: none;
+}
+
+#broom:hover ~ #broomText {
+    display: inline-block;
+    margin-left: -11.5%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+    text-align: center;
+
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: #06D85F;
+}
+
+.popup .content {
+    padding-bottom: 28px;
+}
+
+#bottom {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+#popup3 .popup .content div {
+    display: inline-block;
+    margin-top: 5%;
+}
+
+#popup3 .popup .content div a {
+    text-decoration: none;
+    color: black;
+
+}
+
+#popup3 .popup .content a:hover{
+    cursor: pointer;
+}
+
+#popup3 .popup .content div img {
+    width: 20%;
+    margin-left: 2%;
+}
+
+#popup1 .popup .content img {
+    width: 6%;
+    margin-left: 2%;
+    top: 25%;
+    position: absolute;
+}
+
+.bred {
+    border: 3px solid red;
+}
+
+#left {
+    margin-right: 60px;
+}
+
+#right {
+    margin-left: 60px;
+}
+
+
+
+
+

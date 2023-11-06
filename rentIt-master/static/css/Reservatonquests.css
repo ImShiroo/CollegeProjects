@@ -1,0 +1,164 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup{
+  margin: 70px auto;
+  padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+    text-align: center;
+
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .content {
+    padding-bottom: 28px;
+}
+
+.info a {
+    text-decoration: none;
+}
+
+.popup .content img {
+    width: 7%;
+    margin-left: 2%;
+    top: 25%;
+    position: absolute;
+}
+
+
+
+.estado {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: "img"
+    "info";
+    color: #373F41;
+    margin-left: 10vw;
+    margin-top: 2%;
+}
+
+h2 {
+    margin-top: 10%;
+    margin-left: 10vw;
+    color: #373F41;
+}
+
+a{
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
+
+#naoTem {
+    margin-top: 10%;
+    margin-left: 10vw;
+    color: #373F41;
+}
+
+.imgs2 {
+    width: 380px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.content1 {
+    color: #373F41;
+    margin-bottom: 10%;
+}
+
+.content2 {
+    margin-top: 10%;
+    color: #373F41;
+}
+
+.profile1 {
+    width: 80%;
+}
+
+.content2 a{
+    display: inline-block;
+    margin-top: 3%;
+}
+
+#descricaop {
+    width: 50%;
+}
+
+#fav1 {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "img"
+    "info";
+    margin-bottom: 5%;
+    margin-top: 5%;
+    grid-gap: 10%;
+}
+
+.info {
+    position: relative;
+}
+
+.iconMess {
+    width: 25%;
+}
+
+#remover {
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    padding: 12px 24px;
+    background: #EB5757;
+    border: none;
+    color: white;
+}
+
+#removerSubmit{
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    padding: 12px 24px;
+    background: #EB5757;
+    border: none;
+    color: white;
+
+}
+
+.blue {
+    background-color: #066CB5;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: white;
+}
+

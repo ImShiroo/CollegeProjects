@@ -1,0 +1,347 @@
+body {
+  color: #373F41;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    position: relative;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+#imagemAlojamento {
+    margin-left: 30%;
+    max-width:50%;
+    max-height: 50%;
+    border: 2px solid rgba(0,0,0,1);
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+}
+
+#coracaoIcon{
+    position: absolute;
+    right: 2%;
+    width: 40px;
+    height: 40px;
+    top: 2%;
+    z-index: 1;
+}
+
+.icon {
+    width: 10%;
+    display: inline-block;
+}
+
+.text {
+    color: #373F41;
+}
+
+.info {
+    margin-left: 15%;
+    margin-right: 15%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 25% 50% 100%;
+    grid-template-areas: "info"
+    "descricao"
+    "serv"
+    "contactar";
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    padding-bottom: 5%;
+}
+
+.servicos p {
+    width: 95%;
+}
+
+.localizacao {
+    width: 90%;
+}
+
+.servicos {
+    grid-row: 5 / span 2;
+}
+
+.alojinfo {
+    grid-area: 1 / 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.inforegras {
+    grid-row: 2 / span 2;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 50% 40%;
+    grid-template-rows: auto auto auto auto 28% 18%;
+}
+
+
+
+.inforegras h3 {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+.regrasdiv {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.extras {
+    grid-row: 6;
+}
+
+.descricaoinfo {
+    grid-area: span 2 / 2;
+}
+
+#mensagem {
+    margin-bottom: 5%;
+}
+
+#mensagem textarea {
+    width: 100%;
+    height: 100px;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 10px;
+    text-align: justify;
+    resize: none;
+    box-sizing: border-box;
+    word-spacing: 2px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
+#descricao {
+    width: 100%;
+    height: 30%;
+    background: rgba(196, 196, 196, 0.6);
+    border-radius: 20px;
+    margin-bottom: 3%;
+    text-align: justify;
+}
+
+#descricao p {
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    color: rgba(0,0,0,0.7);
+    word-spacing: 2px;
+}
+
+.grid1 {
+    grid-area: 3 / 2;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 10%;
+}
+
+.button2 {
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 14px 26px;
+    background: #0D1821;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-right: 3%;
+    border: none;
+    margin-top: -5%;
+}
+
+
+.button4 {
+    cursor: pointer;
+    font-size: 23px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 14px 26px;
+    background: #0D1821;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-right: 3%;
+    border: none;
+    margin-left: 45%;
+}
+
+
+.button {
+    font-size: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 8px 15px;
+}
+
+.button3 {
+    z-index: 1;
+    cursor: pointer;
+    font-size: 32px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 16px 40px;
+    background: #076A88;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    margin-top: 5%;
+    border-style: none;
+}
+
+#entrada {
+    width: 40%;
+    height: 70px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-right: 5%;
+}
+
+#saida {
+    width: 40%;
+    height: 70px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+#hospedes {
+    width: 85%;
+    height: 70px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+
+.localizacaodiv {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    padding-bottom: 5%;
+}
+
+#mapaGoogle{
+    width: 100%;
+    height: 300px;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+    text-align: center;
+
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: #06D85F;
+}
+
+.popup .content {
+    padding-bottom: 28px;
+}
+
+#popup1 .popup .content img {
+    width: 6%;
+    margin-left: 2%;
+    top: 25%;
+    position: absolute;
+}
+
+.comentarios {
+    margin-left: 15%;
+    margin-top: 3%;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+#comentario1 {
+    margin-top: 3%;
+    padding-bottom: 2%;
+}
+
+.img1 {
+    width: 36px;
+    height: 36px;
+    border: 1px solid blue;
+    border-radius: 20px;
+}
+
+.star {
+    width: 11%;
+}
+
+#descricao1 {
+    width: 60%;
+}
+
+.avaliacoes {
+    color: rgba(0,0,0,0.6);
+    display: inline-block;
+}
+
+.comentario_div {
+    width: 82%;
+    margin-left: 0%;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+
+
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:checked ~ label > img {
+  transform: scale(1.3);
+  cursor: zoom-out;
+}

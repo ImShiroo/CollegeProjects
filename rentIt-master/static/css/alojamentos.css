@@ -1,0 +1,621 @@
+.content{
+    width: 100%;
+    margin-top: 10%;
+}
+
+/* Pesquisa de alojamentos */
+
+.extra {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "pesquisa";
+}
+
+
+.pesquisa {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: auto;
+    font-family: Mulish, sans-serif;
+    color: #373F41;
+}
+
+.pesquisar {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    text-align: center;
+}
+
+.search {
+    margin-left: 85%;
+}
+
+.searchimg {
+    width: 7%;
+    margin-top: 4%;
+}
+
+.inputstyle {
+    background: rgba(196, 196, 196, 0.5);
+    width: 85%;
+    height: 40px;
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.filtro {
+    margin-left: -40%;
+}
+
+/* Grid de alojamentos */
+
+.gridAlojamentos{
+    margin-top: 60px;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-flow: row;
+    overflow-y: scroll;
+    max-height: 1200px;
+    margin-right: 20px;
+}
+
+.coluna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 220px;
+    height: 270px;
+    left: 40px;
+    top: calc(50% - 270px/2);
+    margin-bottom: 100px;
+}
+
+/* image */
+
+.imagemAlojamento{
+    cursor: pointer;
+    position: absolute;
+    width: 220px;
+    height: 180px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.coracaoIcon{
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 170px;
+    top: 5px;
+    z-index: 1;
+}
+
+#favoritar{
+    cursor: pointer;
+    position: relative;
+    top:190px;
+    background-color: green;
+    margin-bottom: 7px;
+    width: 160px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    alignment: center;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+
+}
+#removerfavoritos{
+    cursor: pointer;
+    position: relative;
+    top:190px;
+    background-color: darkred;
+    margin-bottom: 7px;
+    width: 160px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+
+}
+
+/* Título do alojamento */
+h6{
+    cursor: pointer;
+    text-decoration: underline;
+    position: relative;
+    top: 148px;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #373F41;
+}
+
+/* Descrição do alojamento */
+
+.descricao{
+    position: relative;
+    top: 98px;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #373F41;
+    margin-bottom: 20px;
+}
+
+.preco{
+    position: relative;
+    top: 77px;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 13px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1px;
+    color: #737B7D;
+
+}
+
+/* Grid de pesquisa por area de alojamentos */
+
+.gridPesquisa{
+    display: grid;
+    top: -30px;
+    grid-gap: 20px;
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+    left: 470px;
+    position: relative;
+    width: 650px;
+    margin-top: -380px;
+    max-height: 500px;
+    overflow-y: scroll;
+
+}
+
+.colunaPesquisa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 220px;
+    height: 270px;
+    left: 50px;
+    top: calc(50% - 270px/2);
+    margin-bottom: 50px;
+}
+
+h1{
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #373F41;
+}
+
+
+#botaoSubmeter{
+    width: 90px;
+    height: 40px;
+    margin-left: -30%;
+    border-style: none;
+    background: #0D1821;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.7px;
+    color: #FFFFFF;
+}
+
+
+
+#mapaGoogle{
+    position: relative;
+    width: 85%;
+    height: 600px;
+    left: 7%;
+    top: 80px;
+}
+
+/* InfoWindow do marker */
+
+#infoWindow{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+
+}
+
+.precoInfoWindow{
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.1px;
+    color: #737B7D;
+    margin-top: 1px;
+}
+
+.imagemInfoWindow{
+    cursor: pointer;
+    width: 190px;
+    height: 120px;
+
+}
+
+#tituloInfoWindow{
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: 0.1px;
+    color: #373F41;
+    margin-top: 7px;
+
+}
+
+.buttonInfoWindow{
+    background-color: white;
+    border: none;
+    padding: 0px;
+}
+
+/* dropdown filter */
+.dropbtn {
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(0,0,0,0.1);
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+}
+
+.dropdown-content {
+    display: none;
+    margin-left: -40%;
+    position: absolute;
+    background-color: white;
+    max-height: 400px;
+    width: 330px;
+    border: 2px solid #0C151D;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-bottom: 5%;
+    overflow-y: auto;
+}
+
+.show {display: block;}
+
+.slidecontainer {
+    width: 100%;
+    text-align: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+    border-radius: 20px;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+    border-radius: 20px;
+  background: #076A88;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #076A88;
+  cursor: pointer;
+}
+
+.opcoes {
+    text-align: center;
+}
+
+.item {
+    display: inline-block;
+}
+
+.margin-t {
+    margin-bottom: 20%;
+}
+
+h4 {
+    text-align: center;
+    background: rgba(0,0,0,0.05);
+    padding: 10px;
+}
+
+.icon {
+    width: 15%;
+    display: inline-block;
+    margin-bottom: -4%;
+}
+
+#bedroom:hover ~ #bedroomText {
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: -6%;
+}
+
+#pets:hover ~ #petsText {
+    display: inline-block;
+    margin-left: -10.5%;
+    margin-top: 10%;
+}
+
+#wc:hover ~ #wcText {
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: -9%;
+}
+
+#cooker:hover ~ #cookerText {
+    display: inline-block;
+    margin-left: -6%;
+    margin-top: 10%;
+}
+
+#fridge:hover ~ #fridgeText {
+    display: inline-block;
+    margin-left: -7%;
+    margin-top: 10%;
+}
+
+#wifi{
+    width: 20%;
+    margin-right:25%;
+}
+
+#smoker{
+    width: 20%;
+    margin-right:25%;
+
+}
+
+#pets{
+    width: 20%;
+    margin-right:25%;
+}
+
+#cooker{
+    width: 20%;
+    margin-right:25%;
+
+}
+
+#fridge{
+    width: 20%;
+    margin-right:25%;
+}
+
+
+
+#wifi:hover ~ #wifiText {
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: -11%;
+}
+
+#smoker:hover ~ #smokerText {
+    display: inline-block;
+    margin-left: -5.5%;
+    margin-top: 10%;
+}
+
+.quantidade {
+    background: rgba(196, 196, 196, 0.5);
+    width: 25%;
+    height: 25px;
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 0.5%;
+}
+.text{
+    display: none;
+    font-size: 10px;
+    position: absolute;
+    margin-top: 0%;
+    background: rgba(51,51,51,0.9);
+    border: 1px solid rgba(34,34,34,0.9);
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    color: #bbb;
+    padding: 5px;
+}
+
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 63px;
+    height: 20px;
+    margin-top: 0.5%;
+    margin-left:-10%;
+}
+.switchEstado {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 0.5%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 11%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 1px;
+  top: 7%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3C64B1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#extras {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+#form_search {
+    text-align: center;
+}
+
+#filtrar {
+    border: none;
+    color: white;
+    background: #0C151D;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#procurar {
+    border: none;
+    color: white;
+    background: #0C151D;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 35%;
+}
+
+#remover {
+    border: 1px solid darkred;
+    color: darkred;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

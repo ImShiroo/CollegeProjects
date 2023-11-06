@@ -1,0 +1,112 @@
+#content{
+    margin-top: 10%;
+}
+
+
+h1{
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    color: #373F41;
+    margin-left: 100px;
+}
+
+
+.pesquisar{
+    width: 90%;
+    height: 400px;
+    margin-top: 10px;
+}
+
+#imgPesquisar{
+    position: absolute;
+    margin-top: 20px;
+    width: 40%;
+    margin-left: 5%;
+}
+
+h2{
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 56px;
+    color: #242323;
+    width: 100px;
+}
+.pesquisarPosicao{
+    margin-top: 10px;
+    margin-left: 55%;
+    width: 200px;
+    text-align: left;
+}
+
+h3{
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    color: #373F41;
+}
+
+.explorePosicao{
+    margin-top: 10px;
+    margin-left: 55%;
+    width: 400px;
+    line-height: 30px;
+    text-align: left;
+}
+
+.reservar{
+    width: 90%;
+    height: 400px;
+    margin-top: 5%;
+}
+
+#imgReservar{
+    position: absolute;
+    margin-top: 20px;
+    width: 40%;
+    margin-left: 50%;
+}
+
+.reservarPosicao{
+    width: 200px;
+    text-align: left;
+    margin-left: 5%;
+
+}
+
+.reservePosicao{
+    width: 350px;
+    text-align: left;
+    line-height: 30px;
+    margin-left: 5%;
+
+}
+
+.terminado{
+    width: 90%;
+    height: 400px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+#imgTerminado{
+    position: absolute;
+    margin-top: 20px;
+    width: 40%;
+    margin-left: 5%;
+}
+
+
+
+
+
+
+

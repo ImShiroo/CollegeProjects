@@ -1,0 +1,287 @@
+.estado {
+     display: grid;
+    grid-template-columns: 40% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: "img"
+    "info";
+    margin-top: 10%;
+    margin-left: 10vw;
+    top: 15%;
+    color: #373F41;
+}
+
+#mensagem{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+.imgs2 {
+    max-width: 90%;
+    border: 1px solid black;
+    display: block;
+}
+
+.icon {
+    width: 10%;
+    display: inline-block;
+}
+
+.button {
+    font-size: 13px;
+}
+
+.content2 {
+    color: #373F41;
+    margin-top: 20%;
+}
+
+#gestao {
+    margin-left: 10vw;
+    margin-top: 5%;
+    color: #373F41;
+    font-size: 15px;
+}
+
+#gerir {
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 16px;
+    background: #3C64B1;
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.editar {
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 16px;
+    background: white;
+    color: #3C64B1;
+    border: 1px solid #3C64B1;
+    text-decoration: none;
+    margin-bottom: 3%;
+}
+
+.iconMess {
+    width: 3%;
+}
+
+
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 11%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 1px;
+  top: 7%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3C64B1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+#descricaop {
+    width: 60%;
+}
+
+#gridInquilinos{
+    margin-top: 30px;
+    display: grid;
+    margin-left: -3%;
+    grid-gap: 0px;
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+}
+
+#inquilino1 {
+    display: grid;
+    grid-template-columns: 35% 35%;
+    grid-template-rows: auto;
+    grid-template-areas: "img"
+    "info";
+}
+
+.profile1 {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+}
+
+.info {
+    position: relative;
+    color: #737B7D;
+}
+
+#eliminar1 {
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 8px;
+    background: #EB5757;
+    font-size: 12px;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+#pagamento1 {
+    align-items: center;
+    padding: 12px 18px;
+    background: #F2994A;
+    color: white;
+    font-size: 12px;
+    border: none;
+    margin-top: 3%;
+}
+
+.mess1 {
+    width: 100%;
+}
+
+#imgP1 {
+    position: absolute;
+    display: block;
+    right: 10px;
+    margin-top: -18%;
+    width: 15%;
+}
+
+#arrendamento1 {
+    display: grid;
+    grid-template-columns: 50% 40%;
+    grid-template-rows: auto;
+    grid-template-areas: "img"
+    "info";
+    margin-bottom: 15%;
+    margin-top: 5%;
+    margin-left: -8vw;
+}
+
+#recusar1 {
+    align-items: center;
+    padding: 10px 8px;
+    background: #EB5757;
+    font-size: 12px;
+    border: none;
+    color: white;
+    margin-left: 10%;
+}
+
+#aceitar1 {
+    align-items: center;
+    padding: 10px 8px;
+    background: #219653;
+    font-size: 12px;
+    border: none;
+    color: white;
+}
+
+.arrendar {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    grid-gap: 3%;
+    margin-right: 5vw;
+
+}
+
+#bottom {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+/* The Modal (background) */
+#popup-eliminar-inquilino {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

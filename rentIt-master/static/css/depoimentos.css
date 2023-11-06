@@ -1,0 +1,97 @@
+.body{
+    margin: 0px;
+}
+
+/* quartoBloco */
+.quartoBloco {
+    background: rgba(209, 218, 234, 100);
+    padding-top:2%;
+  margin-top: -3%;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.quartoBloco h1 {
+  padding-top: 5%;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 64px;
+  color: #18191F;
+}
+
+.quartoBloco h4 {
+  margin-top: -2%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  color: #18191F;
+}
+
+.comentarios h4 {
+  color: #18191F;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 2%;
+}
+
+.quartoBloco .comentarios {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-row-gap: 5%;
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+.comentarios1 {
+  position: relative;
+  text-align: justify;
+}
+
+.dadosPerfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10%;
+}
+
+
+.comentarios1 p {
+  position: absolute;
+  top: 23.74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #18191F;
+}
+
+#estado {
+    color: #373F41;
+    margin-top: 10%;
+    margin-left: 20vw;
+    padding-bottom: 10%;
+}
+
+.inputstyle {
+    width: 60%;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 1%;
+}
+
+.ver {
+    cursor: pointer;
+    color: white;
+    padding: 12px 20px;
+    background: rgba(13, 24, 33, 1);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bolder;
+    border: none;
+}

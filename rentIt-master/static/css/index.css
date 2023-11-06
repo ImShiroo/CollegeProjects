@@ -1,0 +1,385 @@
+
+
+/* MAIN */
+/* primeiroBloco */
+.primeiroBloco {
+  margin-top: 5%;
+  margin-bottom: 2px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: max-content;
+}
+
+.primeiroBloco .imgs {
+  margin-left: 100px;
+  margin-top: 20px;
+  float: left;
+  width: 40%;
+  filter: contrast(120%);
+}
+
+.primeiroBloco .content {
+  padding-top: 5%;
+  margin-left: 55%;
+}
+
+.primeiroBloco h1 {
+  width: 70%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  letter-spacing: 0.2px;
+  color: #373F41;
+}
+
+.primeiroBloco .content h4 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #3C64B1;
+}
+
+.primeiroBloco .content p {
+  font-style: normal;
+  font-weight: normal;
+  width: 65%;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  color: #737B7D;
+}
+
+.primeiroBloco .content button {
+  padding: 12px 18px;
+  border: 1px solid #3C64B1;
+  cursor: pointer;
+}
+
+.fotoimg{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.contact-button {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  text-decoration-line: underline;
+  background: transparent;
+  color: #3C64B1;
+  margin-top: 5%;
+}
+
+
+/* segundoBloco */
+
+.segundoBloco {
+  margin-top: 10%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: #E7EFFF;
+  height: 600px;
+}
+
+.segundoBloco .content {
+  padding-top: 5%;
+  margin-left: 10%;
+}
+
+
+.segundoBloco .imgs {
+  float: right;
+  margin-right: 10%;
+  width: 400px;
+  margin-top: 2%;
+}
+
+
+.segundoBloco .content h1 {
+  width: 40%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0.2px;
+  color: #373F41;
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+}
+
+#estudantesinfo, #senhoriosinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+}
+
+#estudantesinfo img{
+  width:30px;
+
+}
+
+#senhoriosinfo img{
+  width:30px;
+
+}
+
+#estudantesinfo p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  color: #737B7D;
+  width: 80%;
+}
+
+#senhoriosinfo p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  color: #737B7D;
+  width: 80%;
+  margin-top: 4%;
+}
+
+/* terceiroBloco */
+.terceiroBloco {
+  width: 100%;
+  background-color: #e1e7f2;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 450px;
+  margin-top: -5%;
+
+}
+.newsletter {
+  padding-top: 5%;
+}
+
+.newsletter h1 {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  letter-spacing: 0.2px;
+  color: #373F41;
+}
+
+.newsletter h5 {
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  color: #737B7D;
+}
+
+.newsletter .in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter input {
+  width: 282px;
+  height: 42px;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #737B7D;
+  border: 1px solid #737B7D;
+  margin-right: 100px;
+}
+
+.newsletter .in button {
+  cursor: pointer;
+  width: 121px;
+  height: 42px;
+  background: #0D1821;
+  border-radius: 30px;
+  left: 63%;
+  text-decoration: none;
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.newsletter .in p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: #737B7D;
+  width: 60%;
+}
+
+/* quartoBloco */
+.quartoBloco {
+  width: 100%;
+  margin-top: -3%;
+  background-color: rgba(209, 218, 234, 100);
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.quartoBloco h1 {
+  padding-top: 5%;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 64px;
+  color: #18191F;
+}
+
+.quartoBloco h4 {
+  margin-top: -2%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  color: #18191F;
+}
+
+a{
+  text-decoration: underline;
+  color: black;
+  cursor: pointer
+}
+
+.quartoBloco .comentarios {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-left: 5%;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.comentarios1 {
+  position: relative;
+  text-align: center;
+}
+
+.comentarios1 p {
+  position: absolute;
+  top: 23.74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #18191F;
+}
+
+.comentarios2 {
+  position: relative;
+  text-align: center;
+}
+
+.comentarios2 p {
+  position: absolute;
+  top: 23.74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #18191F;
+}
+
+.comentarios3 {
+  position: relative;
+  text-align: center;
+}
+
+.comentarios3 p {
+  position: absolute;
+  top: 23.74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #18191F;
+}
+
+.cardimg {
+  max-width: 30vw;
+}
+
+
+
+.comentarios h4 {
+  color: #18191F;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 2%;
+}
+
+.comentarios h5 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #474A57;
+  margin-top: -6%;
+}
+
+.footerPequeno{
+    top: auto;
+    margin-top: 0%;
+}
+
+@media only screen and (max-width: 1070px) {
+  .primeiroBloco {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 70%;
+    grid-template-areas: "img"
+    "content";
+  }
+
+  .primeiroBloco .imgs {
+    grid-area: img;
+    margin-top: 5%;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .primeiroBloco .content {
+    grid-area: content;
+    margin-left: 10%;
+    padding-top: 0%;
+    width: 85%;
+  }
+  .primeiroBloco h1 {
+    font-size: 20px;
+  }
+  .primeiroBloco .content h4 {
+    margin-top: 0%;
+    font-size: 8px;
+  }
+  .primeiroBloco .content p {
+    width: 100%;
+    font-size: 10px;
+  }
+  .contact-button {
+    font-size: 10px;
+    margin-top: 1%;
+  }
+}
+
+
+

@@ -1,0 +1,57 @@
+body {
+  color: #373F41;
+}
+
+.comentarios {
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+#foto{
+    max-width: 100%;
+    width: 300px;
+    border: 1px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#todos_comentarios{
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
+#comentario1 {
+    margin-top: 5%;
+}
+
+.img1 {
+    width: 36px;
+    height: 36px;
+    border: 1px solid blue;
+    border-radius: 20px;
+}
+
+.star {
+    width: 11%;
+}
+
+#descricao1 {
+    width: 60%;
+}
+
+.avaliacoes {
+    color: rgba(0,0,0,0.6);
+    display: inline-block;
+}
+
+.eliminar {
+    align-items: center;
+    padding: 10px 8px;
+    background: #EB5757;
+    font-size: 12px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

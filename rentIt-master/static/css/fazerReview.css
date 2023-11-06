@@ -1,0 +1,108 @@
+.content {
+    display: grid;
+    grid-template-columns: 40% 50%;
+}
+
+
+#estado {
+    color: #373F41;
+    margin-top: 10%;
+    margin-left: 20vw;
+    padding-bottom: 10%;
+}
+
+.ver {
+    cursor: pointer;
+    color: white;
+    padding: 12px 20px;
+    background: rgba(13, 24, 33, 1);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bolder;
+    border: none;
+}
+
+.imgs2 {
+    width: 350px;
+    height: 260px;
+    border: 1px solid black;
+}
+
+.icon {
+    width: 5%;
+}
+
+.range {
+    margin-left: 20%;
+}
+
+#range2 {
+    margin-left: 17%;
+}
+
+#range3 {
+    margin-left: 9.5%;
+}
+
+.star {
+    width: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#titulo {
+    width: 70%;
+    height: 25px;
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    margin-top: 1%;
+    word-spacing: 2px;
+    border-radius: 20px;
+}
+
+#comentario {
+    width: 70%;
+    height: 90px;
+    background: rgba(196, 196, 196, 0.5);
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    resize: none;
+    box-sizing: border-box;
+    margin-top: 1%;
+    word-spacing: 2px;
+    border-radius: 20px;
+}
+
+.range {
+  -webkit-appearance: none;
+  width: 25%;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+    border-radius: 20px;
+}
+
+.range:hover {
+  opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: mediumseagreen;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: mediumseagreen;
+    cursor: pointer;
+}

@@ -1,0 +1,180 @@
+#content{
+    margin-top: 8%;
+    display: grid;
+    grid-template-columns: 25% 70%;
+}
+
+#chatsminimizados {
+    grid-column: 1;
+    color: #373F41;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    overflow-y: auto;
+    max-height: 600px;
+    height: 600px;
+    overflow-x: hidden;
+}
+
+#chatsminimizados h3 {
+    margin-left: 10%;
+}
+
+.inputstyle {
+    background: rgba(137, 196, 244, 0.2);
+    width: 90%;
+    height: 30px;
+    border: 1px solid rgba(137, 196, 244, 0.5);
+    resize: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 8%;
+}
+
+#chataba {
+    background: none;
+    border: none;
+    height: 75px;
+    padding-top: 8px;
+    padding-right: 80px;
+    font-size: 20px;
+    color: gray;
+}
+
+.none:hover {
+    background: rgba(137, 196, 244, 0.5);
+    cursor: pointer;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+    border: 1px solid rgba(137, 196, 244, 0.5);
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: -33px;
+}
+
+#above {
+    z-index: 10;
+}
+
+
+#removerFiltros{
+    border: 1px solid darkred;
+    color: darkred;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20%;
+}
+
+
+#fotoUser {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: -13px;
+}
+
+#outraPessoaFoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    border: 2px solid rgba(0,0,0,0.8);
+    margin-top: -7mm;
+    margin-right: 3mm;
+}
+
+#titulo {
+    color: #373F41;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 5mm;
+}
+
+#titulo h3 {
+    margin-left: 3vw;
+}
+
+#chat_on {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 450px;
+    max-height: 600px;
+}
+
+#remetente {
+    min-width: 20%;
+    margin-top:20px;
+}
+
+#remetente #hora{
+    margin-left: 80%;
+    color: gray;
+}
+
+#bubble {
+    background-color: #4b7dde;
+    border-radius: 500px;
+    width: 40%;
+    padding-bottom: 10px;
+    height: fit-content;
+    min-height: 10px;
+    min-width: 20%;
+    margin-top:20px;
+    color: white;
+    margin-left: 60%;
+}
+
+#bubble p {
+    padding-top: 15px;
+    max-width: 100%;
+    margin-left: 20px;
+}
+
+#recebido{
+    margin-top:20px;
+    min-width: 20%;
+}
+
+#recebido #hora{
+    color: gray;
+}
+
+#bubble_other {
+    background-color: #E7EFFF;
+    border-radius: 500px;
+    width: 40%;
+    padding-bottom: 10px;
+    height: fit-content;
+    min-height: 10px;
+    min-width: 20%;
+    margin-top:20px;
+}
+
+#bubble_other p {
+    padding-left: 15px;
+    padding-top: 10px;
+    max-width: 100%;
+    margin-right: 10px;
+}
+
+.inputstyle_chat {
+    background: rgba(137, 196, 244, 0.2);
+    width: 90%;
+    height: 40px;
+    border: 1px solid rgba(137, 196, 244, 0.5);
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 8%;
+    margin-top: 20px;
+}
+
+

@@ -1,0 +1,100 @@
+
+.estado {
+    display: grid;
+    grid-template-columns: 70mm 90mm;
+    grid-template-rows: auto;
+    color: #373F41;
+    margin-left: 5vw;
+    margin-top: 5mm;
+}
+
+
+h3 {
+    padding-top: 2%;
+    margin-left: 5vw;
+    color: #373F41;
+}
+
+
+.content1 {
+    color: #373F41;
+    margin-bottom: 5%;
+}
+
+.content2 {
+    color: #373F41;
+}
+
+hr {
+    margin-top: 2%;
+    width: 35%;
+    margin-left: 5vw;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+table {
+    margin-top: 4%;
+    color: #373F41;
+    width: 125mm;
+    text-align: left;
+    border-collapse: collapse;
+    margin-left: 5vw;
+}
+
+table th {
+    padding: 10px;
+}
+
+tr {
+   border-top: 1px solid black;
+}
+
+#total {
+    float: right;
+    margin-right: 10vw;
+    color:  #373F41;
+}
+
+.infoextra {
+    margin-left: 5vw;
+}
+
+h5 {
+    font-size: 15px;
+    color: #373F41;
+}
+
+h6 {
+    margin-left: 2%;
+    color: #373F41;
+}
+
+.icon {
+    width: 70px;
+    margin-right: 57%;
+    margin-top: -2%;
+    float: right;
+}
+
+.download {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 16px;
+    margin-top: 8%;
+    margin-left: 5vw;
+}
+
+/* Darker background on mouse-over */
+.download:hover {
+  background-color: RoyalBlue;
+}
+
+
+
+
+
+
+
