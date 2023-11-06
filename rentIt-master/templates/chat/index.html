@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
+<div id="content">
+    {% if chats %}
+        <div id="chatsminimizados">
+            <h3>Conversas</h3>
+            <form method="get">
+                <input type="text" class="inputstyle" placeholder=" Pesquise conversas" name="search_conversa">
+                <br>
+                <br>
+            </form>
+            {% for chat in chats %}
+            <div>
+                <form name="formchat" action="{% url 'chat' chat.chat_id %}" method="get">
+                    {% if chat.pessoa2.nome == userLogged.nome %}
+                        <div class="none"><button id="chataba"><h6><img src="{{chat.pessoa1.foto.url}}" style="float:left" class="icon">{{ chat.pessoa1.nome }}</h6><input type="submit" name="chatname" hidden value="{{ chat.chat_id }}"></button></div>
+                    {% else %}
+                        <div class="none"><button id="chataba"><h6><img src="{{chat.pessoa2.foto.url}}" style="float:left" class="icon"> {{ chat.pessoa2.nome }}</h6><input id="above" type="submit" hidden value="{{ chat.chat_id }}"></button></div>
+                    {% endif %}
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% if outraPessoa.nome != null %}
+                <div id="titulo">
+                    <h3>Conversa com {{ outraPessoa.nome }} <img id="outraPessoaFoto" style="float:left" src="{{ outraPessoa.foto.url }}"></h3>
+                </div>
+            {% else %}
+                <div id="titulo">
+                    <h3></h3>
+                </div>
+            {% endif %}
+            <div id="chat_on">
+                 <div id="chat_in">
+            {% for mensagem in mensagens %}
+                {% if mensagem.remetente_id.nome == userLogged.nome %}
+                    <div id="remetente">
+                        <p id="hora">{{ mensagem.data_hora }}</p>
+                        <div id="bubble">
+                            <p>{{ mensagem.conteudo }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div id="recebido">
+                        <p id="hora"><img src="{{ mensagem.remetente_id.foto.url }}" id="fotoUser"> {{ mensagem.data_hora }}</p>
+                        <div id="bubble_other">
+                            <p>{{ mensagem.conteudo }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+                 </div>
+            </div>
+        <form method="post">
+            {% csrf_token %}
+            <input type="reset" hidden>
+            <input name="mensagem" id="enviarMensagem" class="inputstyle_chat" type="text"  placeholder="Envie uma mensagem...">
+        </form>
+    </div>
+
+        </div>
+
+    {% else %}
+        <div id="chatsminimizados">
+            <h3>Ainda não tem conversas</h3>
+            <form method="post">
+                {% csrf_token %}
+
+        <input type="submit" id="removerFiltros" name="remover" value="Remover filtros" />
+                </form>
+        </div>
+        <div id="chat">
+            <h6></h6>
+        </div>
+    {% endif %}
+</div>
+    <script>
+         $(document).ready(function() {
+            var chat = $('#chat_in');
+            setInterval( function() { chat.load(' #chat_in') }, 9000);
+
+        });
+         if ( window.history.replaceState ) {
+             window.history.replaceState( null, null, window.location.href );
+         }
+    </script>
+
+{% endblock content %}

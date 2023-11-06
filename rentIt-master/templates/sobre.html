@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/sobre.css' %}">
+
+<div id="content">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Como funciona o RentIT?</h1>
+    <div class="pesquisar">
+        <img src="{% static 'gifs/sobre.gif'%}" alt="Pesquisarimg" id="imgPesquisar">
+        <h2 class="pesquisarPosicao">1. Pesquisar</h2>
+        <h3 class="explorePosicao">Explore Alojamentos! </h3>
+        <p class="explorePosicao">Aplique filtros como vivendas ou animais de estimação autorizados.
+        Pode gravar os anúncios favoritos numa wishlist</p>
+    </div>
+    <div class="reservar">
+        <img src="{% static 'gifs/reserve.gif'%}" alt="Reservarimg" id="imgReservar">
+        <h2 class="reservarPosicao">2. Reservar</h2>
+        <h3 class="reservePosicao">Reserve Alojamentos! </h3>
+        <p class="reservePosicao">Assim que encontrar o anúncio que procura, poderá contactar o
+            senhorio para certas dúvidas e ler os comentários de outros hóspedes.
+            Basta reservar e de seguida esperar que o senhorio confirme!</p>
+    </div>
+
+    <div class="terminado">
+        <img src="{% static 'gifs/terminado.gif'%}" alt="Reservarimg" id="imgTerminado">
+        <h2 class="pesquisarPosicao">3. Terminado!</h2>
+        <h3 class="explorePosicao">Reservado!</h3>
+        <p class="explorePosicao">Finalmente, após a confirmação do senhorio da sua reserva pode entrar em contacto
+            com o senhorio para outras dúvidas, dicas locais ou conselhos. O RentIT também estará
+            disponível para qualquer apoio adicional.</p>
+    </div>
+</div>
+    <div class="terceiroBloco">
+        <div class="newsletter">
+            <h1>Subscreva à nossa newsletter</h1>
+            <h5>Esteja sempre a par de todas as atualizações e novidades!</h5>
+            <div class="in">
+                <form method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="E-mail">
+                <button  type="submit" href="#" class="button-subscrever">Subscrever</button>
+                </form>
+                <p>Ao clicar em  “Subscrever” declara que lê e aceita a política de privacidade e autorizo o tratamento de
+                    dados para o envio de comunicações*</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

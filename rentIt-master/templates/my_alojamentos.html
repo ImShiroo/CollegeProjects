@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_alojamentos.css' %}">
+    <div class="extra">
+
+        <div class="adicionamento">
+            <a href="{% url 'addHabitacao' %}" id="adicionar" type="button">Adicionar alojamento</a>
+        </div>
+    </div>
+
+    {% if habitacoes %}
+    {% for habitacao in habitacoes %}
+    <div class="estado">
+        <div class="content1">
+            <h2>Estado: {% if habitacao.estado %} Ativo {% else %} Inativo {% endif %} </h2>
+
+            <img src="{{ habitacao.foto.url }}" class="imgs2">
+        </div>
+        <div class="content2">
+            <h2>{{ habitacao.titulo }} <img src="{% static 'images/message.png'%}" alt="message" class="iconMess"></h2>
+            <p>{{ habitacao.descricao }} </p>
+            <p>{{ habitacao.preco|floatformat:2 }}€ p/dia</p>
+            <form action="{% url 'managing' habitacao.hab_id %}" method="get" class="f1">
+            <button class="gerir" class="button">Gerir<input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+            </form>
+            <form action="{% url 'editHabitacao' habitacao.hab_id %}" method="get" class="f1">
+            <button class="editar" class="button">Editar<input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+            </form>
+
+            <form name="myForm" method="POST">
+            {% csrf_token %}
+            <button class="eliminar" name="eliminar" value="{{ habitacao.hab_id }}" >Eliminar alojamento</button>
+
+            </form>
+            <a href="{% url 'reviewsSenhorio' habitacao.hab_id %}" class="reviews eliminar" >Reviews</a>
+         </div>
+        </div>
+
+
+    {% endfor %}
+
+    {% else %}
+        <br> <br>
+    <h1> Ainda não criou nenhum alojamento.</h1>
+    {% endif %}
+
+
+{% endblock content %}

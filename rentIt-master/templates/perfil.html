@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
+<div class="dados">
+    <div>
+        <h2>{{ user.get_username }}</h2>
+
+        <img class="profile" src="{{ userParaEditar.foto.url }}">
+
+    </div>
+
+    <div class="dadospessoais">
+        <h3>Dados pessoais</h3>
+        <a href="{% url 'editPerfil' %}" id="editar">Editar</a>
+        <p><b>Nome</b>: {{ userParaEditar.nome }}</p>
+        <p><b>E-mail</b>: {{ userParaEditar.email }}</p>
+        <p><b>Data de nascimento</b>: {{ userParaEditar.nascimento }}</p>
+        <p><b>NIF</b>: {{ userParaEditar.nif }}</p>
+        <p><b>Género</b>: {{ userParaEditar.genero }}</p>
+        <p><b>Localidade</b>: {{ userParaEditar.localidade }}</p>
+        <p><b>Línguas</b>: {{ userParaEditar.lingua }}</p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<div class="info">
+
+    <div class="div">
+
+        <img class="imgs" src="{% static 'images/heart_outline.png' %}">
+        <a href="{% url 'favAnuncios' %}" id="fav" class="button">Anúncios favoritos</a>
+
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/pedidos.png' %}">
+        <a href="{% url 'pedidosReserva' %}" id="pedidos" class="button">Pedidos de reserva</a>
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/history.png' %}">
+        <a href="{% url 'histReservas' %}" id="reservas" class="button">Histórico de reservas</a>
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/history.png' %}">
+        <a href="{% url 'histArrendamentos' %}" id="arrendamentos" class="button">Histórico de arrendamentos</a>
+    </div>
+
+</div>
+{% endblock content %}

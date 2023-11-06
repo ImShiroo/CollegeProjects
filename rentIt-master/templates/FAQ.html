@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/FAQ.css' %}">
+    <div id="estado">
+      <h2>Olá! Como podemos ajudá-lo?</h2>
+      <br>
+      <div id="opcoes">
+        <div id="reservas" class="caixa"><img src="{% static 'images/reservar.jpg' %}" class="img"><div class="bordertop"><h5>Reservas</h5></div></div>
+        <div id="hospedarestadias" class="caixa"><img src="{% static 'images/hospedar.jpg' %}" class="img"><div class="bordertop"><h5>Hospedar estadias</h5></div></div>
+        <div id="pagamentos" class="caixa"><img src="{% static 'images/payment.jpg' %}" class="img2"><div class="bordertop"><h5>Pagamentos</h5></div></div>
+      </div>
+      <h2><u>Questões populares</u></h2>
+        <div id="perguntas">
+            <div id="pergunta1" class="caixa2"><h4>Porque é que não consigo efetuar uma reserva com duração com menos de 3 dias?</h4><p><u>Resposta</u>: Todos os alojamentos anunciados no nosso website têm uma estadia mínima de 3 dias.</p></div>
+            <div id="pergunta1" class="caixa2"><h4>Os pedidos de reserva que estou a enviar não aparecem na minha página de pedidos enviados. </h4><p><u>Resposta</u>: O nosso website só permite que esteja ativo 1 pedido de reserva para cada alojamento de cada vez. Se deseja alterar os dados do pedido, cancele-o e faça um novo.</p></div>
+
+        </div>
+      <a class="ver" href="../contacto">Continua com dúvidas? Envie-nos um e-mail com a sua questão.</a>
+    </div>
+
+
+
+<div class="terceiroBloco">
+        <div class="newsletter">
+            <h1>Subscreva à nossa newsletter</h1>
+            <h5>Esteja sempre a par de todas as atualizações e novidades!</h5>
+            <div class="in">
+                <form method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="E-mail">
+                <button  type="submit" href="#" class="button-subscrever">Subscrever</button>
+                </form>
+                <p>Ao clicar em  “Subscrever” declara que lê e aceita a política de privacidade e autorizo o tratamento de
+                    dados para o envio de comunicações*</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

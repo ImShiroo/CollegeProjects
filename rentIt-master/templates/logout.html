@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/logout.css' %}">
+<br>
+<br>
+<br>
+<br>
+<h2>Saiu da sua conta.</h2>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <p>Deseja iniciar sessão de novo? <a href="{% url 'login' %}">Iniciar sessão</a></p>
+            </small>
+        </div>
+{% endblock content %}

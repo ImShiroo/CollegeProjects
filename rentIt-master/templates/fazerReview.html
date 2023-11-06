@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/fazerReview.css' %}">
+<div id="estado">
+      <h2>{{alojamento.titulo}}</h2>
+      <div class="content">
+        <div class="content1">
+            <img src="{{ alojamento.foto.url }}" class="imgs2">
+        </div>
+
+         <div class="content2">
+             <form name="reviewForm" method="POST">
+                 {% csrf_token %}
+                 <p><img src="{% static 'images/services.png' %}" class="icon"> Limpeza <input required class="range" type="range" name="limpeza" min="1" max="5" onchange="updateTextInput(this.value);" >
+                 <span type="text" id="textInput"></span></p>
+                 <p><img src="{% static 'images/money.png' %}" class="icon"> Outros inquilinos<input required class="range" id="range3" type="range" name="inquilino" min="1" max="5" onchange="updateTextInput2(this.value);" >
+                 <span type="text" id="textInput2"></span></p>
+                 <p><img src="{% static 'images/vizinhanca.png' %}" class="icon"> Vizinhança<input required class="range" id="range2" type="range" name="vizinhanca" min="1" max="5" onchange="updateTextInput3(this.value);" >
+                 <span type="text" id="textInput3"></span></p>
+                 <p><img src="{% static 'images/settingssenhorio.png' %}" class="icon"> Senhorio<input required class="range" type="range" name="senhorio" min="1" max="5" onchange="updateTextInput4(this.value);" >
+                 <span type="text" id="textInput4"></span></p>
+                 <br>
+                 <h5>O que achou deste alojamento?</h5>
+                 <textarea name="nome" placeholder=" Titulo" id="titulo" maxlength="100" required></textarea>
+                 <textarea name="comentario" placeholder=" Comentário..." id="comentario" maxlength="500" required></textarea>
+                 <br>
+                 <br>
+                 <br>
+                 <button class="ver">Fazer review</button>
+             </form>
+        </div>
+
+      </div>
+</div>
+
+<script>
+    function updateTextInput(val) {
+          document.getElementById('textInput').innerHTML=val+'<img class="star" src="\{% static "images/star.png" %}"\>';
+        }
+    function updateTextInput2(val) {
+          document.getElementById('textInput2').innerHTML=val+'<img class="star" src="\{% static "images/star.png" %}"\>';
+        }
+    function updateTextInput3(val) {
+          document.getElementById('textInput3').innerHTML=val+'<img class="star" src="\{% static "images/star.png" %}"\>';
+        }
+    function updateTextInput4(val) {
+          document.getElementById('textInput4').innerHTML=val+'<img class="star" src="\{% static "images/star.png" %}"\>';
+        }
+</script>
+{% endblock content %}

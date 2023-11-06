@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Reservatonquests.css' %}">
+    <div id="gestao">
+        <div>
+            <br>
+            <br>
+            <h2>Pedidos enviados</h2>
+            {% if pedidos %}
+                <div class="estado">
+                    {% for pedido in pedidos %}
+
+                            <div class="content1">
+                                <a href="/verAlojamento/{{ pedido.habitacao_id.hab_id }}"><h3>{{ pedido.habitacao_id.titulo }}</h3></a>
+                                <img src="{{ pedido.habitacao_id.foto.url }}" class="imgs2">
+                                <p>{{ pedido.habitacao_id.morada}}</p>
+                            </div>
+
+
+                            <div class="content2">
+                                <h3>Pedido: <span class="blue">Pendente</span></h3>
+                                    <div id="fav1">
+                                        <p id="dataEntrada"><b>Data de entrada:</b>{{ pedido.data_entrada }}</p>
+                                        <p id="dataSaida"><b>Data de saída:</b>{{ pedido.data_saida }}</p>
+                                    </div>
+                                <form method="post">
+                                {% csrf_token %}
+                                <button id="remover" type="submit" name="cancelar" value="{{ pedido.pedido_id }}">Cancelar pedido</button>
+                                </form>
+                             </div>
+                        {% endfor %}
+
+                </div>
+            {% else %}
+                <h3 id="naoTem"> Não tem pedidos enviados.</h3>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

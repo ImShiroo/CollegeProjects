@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
+<div class="dados">
+    <div>
+        <h2>{{ user.get_username }}</h2>
+        <img class="profile" src="{{ userCorrente.foto.url }}">
+
+    </div>
+    <div class="dadospessoais">
+        <h3>Dados pessoais</h3>
+
+
+        <h4>Por favor preencha os campos que deseja alterar.</h4>
+
+        <form id="editUser" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="foto">
+        {% if userCorrente.nome == NULL or userCorrente.nome == "" %}
+        <p><input id="pesquisar" name="nome" type="text" class="inputstyle" placeholder="Nome"></p>
+        {% else  %}
+        <p><input id="pesquisar" name="nome" type="text" class="inputstyle" placeholder="{{ userCorrente.nome }}"></p>
+        {% endif  %}
+        <p><input id="pesquisar" name="email" class="inputstyle" placeholder="{{ userCorrente.email }}"></p>
+            {% if userCorrente.nif == NULL or userCorrente.nif == "" %}
+        <p><input id="pesquisar" name="nif" type="number" class="inputstyle" placeholder="Nif"></p>
+            {% else  %}
+        <p><input id="pesquisar" name="nif" type="number" class="inputstyle" placeholder="{{ userCorrente.nif }}"></p>
+            {% endif  %}
+            {% if userCorrente.nascimento == NULL or userCorrente.nascimento == "" %}
+        <p><input id="pesquisar" name="nascimento" onblur="(this.type='text')" onfocus="(this.type='date')" class="inputstyle" placeholder="Data de nascimento"></p>
+            {% else  %}
+        <p><input id="pesquisar" name="nascimento" onblur="(this.type='text')" onfocus="(this.type='date')" class="inputstyle" placeholder="{{ userCorrente.nascimento }}"></p>
+            {% endif  %}
+            {% if userCorrente.genero == NULL or userCorrente.genero == "" %}
+        <p><input id="pesquisar" name="genero" class="inputstyle" placeholder="Género"></p>
+            {% else  %}
+        <p><input id="pesquisar" name="genero" class="inputstyle" placeholder="{{ userCorrente.genero }}"></p>
+            {% endif  %}
+            {% if userCorrente.localidade == NULL or userCorrente.localidade == "" %}
+        <p><input id="pesquisar" name="localidade" type="text" class="inputstyle" placeholder="Localidade"></p>
+            {% else  %}
+        <p><input id="pesquisar" name="localidade" type="text" class="inputstyle" placeholder="{{ userCorrente.localidade }}"></p>
+            {% endif  %}
+            {% if userCorrente.lingua == NULL or userCorrente.lingua == "" %}
+            <p><input id="pesquisar" name="lingua" type="text" class="inputstyle" placeholder="Linguagens"></p>
+            {% else  %}
+            <p><input id="pesquisar" name="lingua" type="text" class="inputstyle" placeholder="{{ userCorrente.lingua }}"></p>
+            {% endif  %}
+            <button id="botaoSubmeter">Submeter<input type="submit" hidden></button>
+
+        </form>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<div class="info">
+
+    <div class="div">
+
+        <img class="imgs" src="{% static 'images/heart_outline.png' %}">
+        <a href="#" id="fav" class="button">Anúnicos favoritos</a>
+
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/pedidos.png' %}">
+        <a href="#" id="pedidos" class="button">Pedidos de reserva</a>
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/history.png' %}">
+        <a href="#" id="reservas" class="button">Histórico de reservas</a>
+    </div>
+
+    <div class="div">
+        <img class="imgs" src="{% static 'images/history.png' %}">
+        <a href="#" id="arrendamentos" class="button">Histórico de arrendamentos</a>
+    </div>
+
+</div>
+{% endblock content %}

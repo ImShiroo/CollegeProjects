@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+    <div class="primeiroBloco">
+        <img src="{% static 'images/studentHome.png'%}" alt="Comunicacaoimg" class="imgs">
+        <div class="content">
+            <h4> Sobre nós </h4>
+            <h1> Encontra o sítio perfeito connosco! </h1>
+            <p>És estudante universitário à procura de alojamento ou tens um alojamento que queres alugar?
+                Inscreve-te no nosso site e começa já a usufruir dos vários serviços que oferecemos para
+                tornar este processo mais rápido e fácil!</p>
+            <a href="/contacto"><button class="contact-button">Contacta-nos</button></a>
+        </div>
+    </div>
+
+    <div class="segundoBloco">
+        <img src="{% static 'images/estudantesCom.png'%}" alt="Comunicacaoimg2" class="imgs">
+        <div class="content">
+            <h1> Estabelecemos a comunicação entre senhorio e inquilino e fazemos a gestão do aluguer. </h1>
+            <div class="box">
+                <div id="estudantesinfo">
+                    <img src="{% static 'images/studentHat.png'%}" alt="estudantesicon" class="imgs">
+                    <p>A melhor forma de encontrar alojamento para estudantes universitários através dos nossos
+                        filtros de pesquisa.</p>
+                </div>
+                <div id="senhoriosinfo">
+                    <img src="{% static 'images/home.png'%}" alt="senhoriosicon" class="imgs">
+                    <p>Descomplicamos a gestão de um aluguer para o senhorio através dos vários serviços que fornecemos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="terceiroBloco">
+        <div class="newsletter">
+            <h1>Subscreva à nossa newsletter</h1>
+            <h5>Esteja sempre a par de todas as atualizações e novidades!</h5>
+            <div class="in">
+                <form method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="E-mail">
+                <button type="submit" href="#" class="button-subscrever">Subscrever</button>
+                </form>
+                <p>* Ao clicar em  “Subscrever” declara que lê e aceita a política de privacidade e autorizo o tratamento de
+                    dados para o envio de comunicações*</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quartoBloco">
+        <a href="/depoimentos"><h1>Os nossos clientes falam</h1></a>
+        <h4>Trabalhamos com vários clientes por todo o país!</h4>
+        <div class="comentarios">
+            {% for testimonial in testimonials %}
+            <div class="comentarios1">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>{{ testimonial.comentario }}</p>
+                <div class="dadosPerfil">
+                    <img src="{{ testimonial.user_id.foto.url }}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>{{ testimonial.user_id.nome }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock content %}

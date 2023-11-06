@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recibo_fatura.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<button class="download" id="download"><i class="fa fa-download"></i> Download</button>
+
+<div id="content" style="background-color: white;">
+    <h3>Recibo de arrendamento do alojamento {{ titulo }}</h3>
+     <img src="{% static 'images/logo_transparent_original.png' %}" class="icon">
+    <div class="estado">
+        <div class="content1">
+            <h4>De</h4>
+            <h5>Nome</h5>
+            <h6>{{ senhorio.user_id.nome }}</h6>
+            <h5>Email</h5>
+            <h6>{{ senhorio.user_id.email }}</h6>
+        </div>
+        <div class="content2">
+            <h4>Para</h4>
+            <h5>Nome</h5>
+            <h6>{{ inquilino.user_id.nome }}</h6>
+            <h5>Email</h5>
+            <h6>{{ inquilino.user_id.email }}</h6>
+            <h5>NIF</h5>
+            <h6>{{ inquilino.user_id.nif }}</h6>
+            <h5>Morada</h5>
+            <h6>{{ inquilino.user_id.localidade }}</h6>
+         </div>
+    </div>
+
+<hr>
+
+<div class="infoextra">
+    <h5>Número do recibo</h5>
+    <h6>{{ nr_recibo }}</h6>
+    <h5>Data</h5>
+    <h6>{{ pagamento.timestamp }}</h6>
+
+</div>
+
+    <table>
+      <tr>
+          <th>Descrição</th>
+          <th>Quantia</th>
+          <th>Taxa</th>
+      </tr>
+      <tr>
+        <td>{{ titulo }}</td>
+        <td>{{ pagamento.valor }} €</td>
+          <td><img src="{% static 'images/box.png'%}"></td>
+      </tr>
+    </table>
+
+</div>
+<div id="editor"></div>
+
+<script>
+var pdf = new jsPDF("p", "mm", "a4");
+                margins = {
+                    top: 10,
+                    bottom: 10,
+                    left: 10,
+                    width: 600
+                  };
+
+$('#download').click(function() {
+    let pdf = new jsPDF('p', 'pt', 'a4');
+        pdf.html(document.getElementById('content'), {
+            callback: function () {
+                pdf.save('faturaAlojamento_{{titulo}}_{{pagamento.timestamp}}.pdf');
+            }
+        });
+
+  /*var options = {};
+  var pdf = new jsPDF("1", "pt", "a4");
+
+    margins = {
+        top: 20,
+        bottom: 20,
+        left: 20,
+        width: 700
+      };
+
+    pdf.html($("#content"), options,function() {
+        pdf.save("faturaAlojamento_{{titulo}}_{{pagamento.timestamp}}.pdf");
+    }, margins);*/
+});
+
+</script>
+{% endblock content %}

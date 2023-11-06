@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+    <div class="content">
+        <img src="{% static 'images/studentHome.png'%}" alt="Comunicacaoimg" class="imgs">
+            <div id="loginForm">
+                <form method="POST">
+                    {% csrf_token %}
+                    <h1>Introduza os seus dados de Login</h1>
+                    <input class="fieldForm" type="text" name="username" placeholder="Username" required>
+                    <br>
+                    <input class="fieldForm" type="password" name="password" placeholder="Password" required>
+                    <br>
+                    <button id="botaoLogin">Login<input type="submit" hidden></button>
+                    </form>
+                <br>
+               <a id="link" href="">Esqueceste-te da password?</a>
+                    <br> <br>
+               <a id="link" href="{% url 'register' %}">Não tem conta? Registe-se!</a>
+            </div>
+
+    </div>
+
+
+<div class="terceiroBloco">
+        <div class="newsletter">
+            <h1>Subscreva à nossa newsletter</h1>
+            <h5>Esteja sempre a par de todas as atualizações e novidades!</h5>
+            <div class="in">
+                <form method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="E-mail">
+                <button  type="submit" href="#" class="button-subscrever">Subscrever</button>
+                </form>
+                <p>Ao clicar em  “Subscrever” declara que lê e aceita a política de privacidade e autorizo o tratamento de
+                    dados para o envio de comunicações*</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quartoBloco">
+        <a href="/depoimentos"><h1>Os nossos clientes falam</h1></a>
+        <h4>Trabalhamos com vários clientes por todo o país!</h4>
+        <div class="comentarios">
+            {% for testimonial in testimonials %}
+            <div class="comentarios1">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>{{ testimonial.comentario }}</p>
+                <div class="dadosPerfil">
+                    <img src="{{ testimonial.user_id.foto.url }}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>{{ testimonial.user_id.nome }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}

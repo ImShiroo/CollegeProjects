@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/hist_reservas.css' %}">
+
+    <h2>Histórico de reservas</h2>
+    {% if historico %}
+    {% for hist in historico %}
+    <div class="estado">
+        <div class="content1">
+            <h3>{{ hist.habitacao.hab_id.titulo }}</h3>
+            <img src="{{ hist.habitacao.hab_id.foto.url }}" class="imgs2">
+            <p>{{ hist.habitacao.hab_id.morada }}</p>
+        </div>
+        <div class="content2">
+            <h3>Dados</h3>
+            <br>
+            <p><b>Check-in</b>: {{ hist.desde }}</p>
+            <p><b>Check-out</b>: {{ hist.ate }}</p>
+            <p><b>Senhorio</b>: {{ hist.senhorio.user_id.nome }}</p>
+            <form class="formreview" action="{% url 'fazerReview' habitacao.hab_id %}" method="get">
+            <button id="review">Fazer review<input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+            </form>
+         </div>
+
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>Ainda não tem reservas no seu Histórico.</h2>
+    {% endif %}
+{% endblock content %}

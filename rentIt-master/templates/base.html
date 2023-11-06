@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    {% load static %}
+    <link rel="icon" href="{% static 'images/logo_transparent_original.png' %}?"/>
+  <title>RentIt</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/generalStyle.css' %}">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+            integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+            crossorigin="anonymous">
+    </script>
+
+
+
+</head>
+<body>
+<!-- HEADER -->
+{% block header %}
+<header class="header">
+        <a href="../"><img id="logo" src="{% static 'images/logo_transparent_original.png' %}"></a>
+        <div class="links">
+            {% if user.is_authenticated %}
+            <!-- SE ESTIVER AUTENTICADO -->
+            <a href="{% url 'sobre' %}" class="textoLinks">Sobre</a>
+            <a href="{% url 'alojamentos' %}" class="textoLinks">Alojamentos</a>
+            <a href="{% url 'alugueres' %}"  class="textoLinks">Os meus Alugueres</a>
+            <a href="{% url 'os_meus_alojamentos' %}" class="textoLinks">Os meus Alojamentos</a>
+            <a href="{% url 'contacto' %}" class="textoLinks">Contacto</a>
+            <a href="{% url 'FAQ' %}" class="textoLinks">FAQ</a>
+
+            <div class="loggedArea">
+                <a href="{% url 'perfil' %}" id="hoverperfil"><p><img id="profilePic" style="float:left" src="{{ userLogged.foto.url }}">  {{userLogged.nome|truncatewords:1}} </p></a>
+                 <a href="/chat"><img id="msg" src="{% static 'images/chat.png' %}"></a>
+                <img id="notifications" src="{% static 'images/bell.svg' %}">
+                <img id="settings" src="{% static 'images/settings.svg' %}">
+                <a href="{% url 'logout' %}"><img id="logout" src="{% static 'images/logout.svg' %}"></a>
+            </div>
+            {% else %}
+            <a href="{% url 'sobre' %}" class="textoLinks">Sobre</a>
+            <a href="{% url 'contacto' %}" class="textoLinks">Contacto</a>
+            <a href="{% url 'FAQ' %}" class="textoLinks">FAQ</a>
+        </div>
+        <div class="loginButtons">
+            <!-- SE NÃO ESTIVER AUTENTICADO -->
+            <a href="{% url 'login' %}" id="sessao">Iniciar sessão</a>
+            <a href="{% url 'register' %}" id="criar">Criar conta</a>
+        </div>
+        {% endif %}
+</header>
+{% endblock header %}
+
+{% block content %}
+{% endblock content %}
+<div class="chatdiv"></div>
+<!-- FOOTER -->
+<footer class="footerPequeno">
+    <div class="footerLeft">
+        <p>© 2021 RentIT. All rights reserved</p>
+        <img src="{% static 'images/bolinhaFooter.svg' %}" alt="bolinhafooter" class="bolinha">
+        <p>Termos</p>
+        <img src="{% static 'images/bolinhaFooter.svg' %}" alt="bolinhafooter" class="bolinha">
+        <p>Privacidade</p>
+        <a href="../"><img id="logofooter" src="{% static 'images/logo_transparent_original.png' %}"></a>
+    </div>
+
+    <div class="footerRight">
+        <img src="{% static 'images/instagram.png' %}" alt="insta">
+        <img src="{% static 'images/dribbble.png' %}" alt="dribbble">
+        <img src="{% static 'images/twitter.png' %}" alt="twitter">
+        <img src="{% static 'images/youtube.png' %}" alt="youtube">
+    </div>
+</footer>
+
+</body>
+</html>

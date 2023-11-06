@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/hist_arrendamentos.css' %}">
+
+    <h2>Histórico de arrendamentos</h2>
+    {% if historico %}
+    {% for hist in historico %}
+    <div class="estado">
+        <div class="content1">
+            <h3>{{ hist.habitacao.hab_id.titulo }}</h3>
+            <img src="{{ hist.habitacao.hab_id.foto.url }}" class="imgs2">
+            <p>{{ hist.habitacao.hab_id.morada }}</p>
+        </div>
+        <div class="content2">
+            <h3>Inquilino</h3>
+            <div class="inquilinos">
+                <div class="arrendar">
+                    <div id="fav1">
+                        <img class="profile1" src="{{ hist.inquilino.user_id.foto.url }}">
+                        <div class="info">
+                            <p id="nome1">{{ hist.inquilino.user_id.nome }}</p>
+                            <p id="imgP1"><img class="iconMess" src="{% static 'images/chat.png' %}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+                <br>
+                <p><b>Check-in</b>: {{ hist.desde }}</p>
+                <p><b>Check-out</b>: {{ hist.ate }}</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% endfor %}
+    {% else %}
+    <h2>Ainda não tem reservas no seu Histórico.</h2>
+    {% endif %}
+{% endblock content %}

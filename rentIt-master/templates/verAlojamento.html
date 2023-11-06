@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/verAlojamento.css' %}">
+<div class="coluna">
+
+    <div class="container">
+      <input type="checkbox" id="zoomCheck">
+      <label for="zoomCheck">
+        <img src="{{ habitacao.foto.url }}" id="imagemAlojamento">  </label>
+    </div>
+
+</div>
+<div class="info">
+    <div class="alojinfo">
+        <h2 id="titulo">{{ habitacao.titulo }}</h2>
+        <p class="localizacao">{{ habitacao.morada }}</p>
+        <p id="preco">{{ habitacao.preco|floatformat:2 }}€ p/dia</p>
+    </div>
+
+    <div class="inforegras">
+        <h3>Informações</h3>
+        <div>
+            <h4>Tipo</h4>
+            {% if habitacao.tipo == "Apartamento" %}
+                <p class="tipo" class="text"><img src="{% static 'images/apartamento_icon.png'%}" alt="icon" class="icon"> Apartamento</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+            {% if habitacao.tipo == "Quarto" %}
+                <p class="tipo" class="text"><img src="{% static 'images/room_icon.png'%}" alt="icon" class="icon"> Quarto</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+            {% if habitacao.tipo == "Vivenda" %}
+                <p class="tipo" class="text"><img src="{% static 'images/house_icon.png'%}" alt="icon" class="icon"> Vivenda</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+        </div>
+        <div>
+            <h4>Faixa etária</h4>
+            <p id="faixa" class="text"><img src="{% static 'images/age_icon.png'%}" alt="icon" class="icon"> 18 - {{ habitacao.faixa_etaria }}</p>
+        </div>
+        <div>
+            <h4>Género</h4>
+            {% if habitacao.genero == "F" %}
+                <p class="genero" class="text"><img src="{% static 'images/F.png'%}" alt="icon" class="icon"> Feminino</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+            {% if habitacao.genero == "M" %}
+                <p class="genero" class="text"><img src="{% static 'images/M.png'%}" alt="icon" class="icon"> Masculino</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+            {% if habitacao.genero == "O" %}
+                <p class="genero" class="text"><img src="{% static 'images/O.png'%}" alt="icon" class="icon"> Outro</p> <!-- if tipo == "exemplo" -> src = exemplo.jpg -->
+            {% endif %}
+        </div>
+
+
+        <div>
+            <h4>Área (m2)</h4>
+            <p id="area" class="text"><img src="{% static 'images/tamanho.png'%}" alt="icon" class="icon"> {{habitacao.area}}</p>
+        </div>
+
+        <div>
+            <h4>Quartos</h4>
+            <p id="quarto" class="text"><img src="{% static 'images/room_icon.png'%}" alt="icon" class="icon"> {{habitacao.quartos}}</p>
+        </div>
+
+        <div>
+            <h4>Casa de banho</h4>
+            <p id="wc" class="text"><img src="{% static 'images/wc.png'%}" alt="icon" class="icon"> {{habitacao.wc}}</p>
+        </div>
+
+        <div class="servicos">
+            <h4>Serviços</h4> <!-- colocar max para 3 aparecerem -->
+            {% if habitacao.ar_condicionado %}
+                <p  class="text"><img src="{% static 'images/cooling.png'%}" alt="icon" class="icon"> Ar condicionado</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.limpeza %}
+                <p  class="text"><img src="{% static 'images/broom.png'%}" alt="icon" class="icon"> Empregada de limpeza</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.wifi %}
+                <p  class="text"><img src="{% static 'images/wifi.png'%}" alt="icon" class="icon"> Ligação wifi</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.televisao %}
+                <p  class="text"><img src="{% static 'images/tv.png'%}" alt="icon" class="icon"> Televisão</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.fogao %}
+                <p  class="text"><img src="{% static 'images/cooker.png'%}" alt="icon" class="icon"> Fogão</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.frigorifico %}
+                <p class="text"><img src="{% static 'images/fridge.png'%}" alt="icon" class="icon"> Frigorifico</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.metro %}
+                <p class="text"><img src="{% static 'images/subway.png'%}" alt="icon" class="icon"> Metro</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+            {% if habitacao.autocarro %}
+                <p class="text"><img src="{% static 'images/bus.png'%}" alt="icon" class="icon"> Autocarro</p>
+                <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+            {% endif %}
+        </div>
+        {% if habitacao.extras %}
+        <div class="extras">
+            <h4>Extras</h4>
+            <p class="text pad"><img src="{% static 'images/plus.png'%}" alt="icon" class="icon"> {{habitacao.extras}}</p>
+            <!-- <a href="" class="button" id="ver_tudo_servicos">Ver tudo</a> -->
+        </div>
+        {% endif %}
+
+        <div class="regrasdiv">
+            <h4>Regras</h4> <!-- colocar max para 3 aparecerem -->
+            {% if habitacao.animais %}
+                <p class="regras" class="text"><img src="{% static 'images/pets.png'%}" alt="icon" class="icon"> Permitido animais de estimação</p>
+             <!-- <a href="" class="button" id="ver_tudo_regras">Ver tudo</a> -->
+            {% else %}
+                <p class="regras" class="text"><img src="{% static 'images/notpets.png'%}" alt="icon" class="icon"> Proibido animais de estimação</p>
+            {% endif %}
+            {% if habitacao.fumador %}
+                <p class="regras" class="text"><img src="{% static 'images/smoker.png'%}" alt="icon" class="icon"> Permitido fumadores</p>
+            {% else %}
+                <p class="regras" class="text"><img src="{% static 'images/notsmoker.png'%}" alt="icon" class="icon"> Proibido fumadores</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="descricaoinfo">
+        <div id="descricao"><p >{{habitacao.descricao}}</p></div>
+        <form name="myForm" id="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="mensagem"><textarea name="msg" maxlength="300" placeholder=" Envie mensagem ao senhorio em caso de dúvidas ou informações"></textarea></div>
+            <button class="button2" id="contactar">Contactar Senhorio</button>
+        </form>
+    </div>
+
+    <div class="checkin">
+        <form name="myForm" id="checkinform" method="post">
+            {% csrf_token %}
+            <div class="grid1">
+                <input required id="entrada" name="entrada" placeholder="Checkin" autocomplete="off"> <!--onblur="(this.type='text')" onfocus="(this.type='date')" min="{{min}}" -->
+                <input required id="saida" name="saida" placeholder="Checkout" autocomplete="off"> <!--onblur="(this.type='text')" onfocus="(this.type='date')"-->
+                <input required type="number" id="hospedes" name="hospedes" placeholder="Hóspedes">
+                <button id="reservar" onclick="validateAndSend()" class="button3">Reservar</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<br>
+
+<div class="localizacaodiv">
+    <h2>Localização</h2>
+    <p class="localizacao">{{ habitacao.morada }}</p>
+    <div id="mapaGoogle">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIj4fz-0lwLlCZ06XXkN5FMntRBkxBi18&callback=initMap&libraries=&v=weekly"async></script>
+    </div>
+</div>
+
+
+<div class="comentarios">
+    <h2>Comentários({{ c }})</h2>
+    {% if c > 0 %}
+        <div id="todos_comentarios">
+             {% for comentarioo in dados_comentarios %}
+            <div id="comentario1">
+                <p id="nomeinq"><img class="img1" src="{{ comentarioo.inquilino_id.foto.url }}"> {{comentarioo.inquilino_id.nome}}, {{comentarioo.inquilino_id.localidade}}</p>
+                <div class="info1">
+                    <div id="titulo1"><p><b>{{comentarioo.nome}}</b></p></div>
+                    <div class="avaliacoes">Limpeza: {{comentarioo.limpeza}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Senhorio: {{comentarioo.senhorio}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Vizinhanca: {{comentarioo.vizinhanca}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Inquilinos: {{comentarioo.inquilino}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div id="descricao1"><p>{{comentarioo.comentario}}</p></div>
+                </div>
+            </div>
+            <hr class="comentario_div">
+
+        {% endfor %}
+         </div>
+        </div>
+    {% else %}
+        <div id="comentario1">
+            <p>Ainda sem comentários</p>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+<form class="formreview" action="{% url 'fazerReview' habitacao.hab_id %}" method="get">
+    <button class="button4">Fazer review<input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+</form>
+</div>
+</div>
+
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			Pedido de reserva enviado! <img src="{% static 'images/success.png'%}">
+            <p><a href="{% url 'pedidosReserva' %}">Ver os seus pedidos enviados</a></p>
+		</div>
+	</div>
+</div>
+
+<script>
+    var dates = []
+
+    $('document').ready(function(){
+
+        $.ajax({
+            url: '',
+            type: 'GET',
+            data: {'data': 'checkOcupacao'},
+            success: function(response) {
+                dates = response.data
+                if (dates[0]) {
+                    $(function() {
+                        $("#entrada").datepicker({
+                            dateFormat: "yy-mm-dd",
+                            changeYear: true,
+                            changeMonth: true,
+                            minDate: 0,
+
+                            beforeShowDay: function(date) {
+                                var string = jQuery.datepicker.formatDate('yymmdd', date);
+                                return [dates[0].indexOf(string) == -1];
+                            },
+
+                            onSelect: function(dateText, instance){
+                                date = $.datepicker.parseDate(instance.settings.dateFormat, dateText, instance.settings);
+                                date.setDate(date.getDate() + 3);
+                                $("#saida").datepicker("option", "minDate", date);
+                            }
+
+                        });
+                    })
+                } else {
+                    $("#entrada").datepicker({
+                            dateFormat: "yy-mm-dd",
+                            changeYear: true,
+                            changeMonth: true,
+                            minDate: 0,
+                            onSelect: function(dateText, instance){
+                                date = $.datepicker.parseDate(instance.settings.dateFormat, dateText, instance.settings);
+                                date.setDate(date.getDate() + 3);
+                                $("#saida").datepicker("option", "minDate", date);
+                            }
+                    });
+
+                    $("#saida").datepicker({
+                        dateFormat: "yy-mm-dd",
+                        changeYear: true,
+                        changeMonth: true,
+                        minDate: 0
+                    });
+                    dates[0] = []
+                }
+            },
+
+            error: function(response) { console.log("error") }
+        })
+    });
+
+    $("#saida").datepicker({
+        dateFormat: "yy-mm-dd",
+        changeYear: true,
+        changeMonth: true,
+        minDate: 0
+    });
+
+    function validateAndSend() {
+
+        if (document.getElementById("entrada").value !== "" && document.getElementById("saida").value !== "" &&
+            document.getElementById("hospedes").value !== "")
+            location.href = "#popup1";
+        else {
+            return false;
+        }
+    }
+
+      // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 38.770896, lng: -9.096425 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("mapaGoogle"), {
+          zoom: 15,
+          center: uluru,
+        });
+
+        const geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map);
+
+      }
+
+
+    function geocodeAddress(geocoder, resultsMap) {
+
+            const address = "{{ habitacao.morada }}";
+            geocoder.geocode({address: address}, (results, status) => {
+                if (status === "OK") {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    const contentString = "Isto é o exemplo de uma infoWindow"+ address;
+                    const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    });
+                    const marker = new google.maps.Marker({
+                        map: resultsMap,
+                        title: address,
+                        position: results[0].geometry.location,
+                    });
+
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+
+    }
+
+    </script>
+
+
+
+
+
+
+
+{% endblock content %}

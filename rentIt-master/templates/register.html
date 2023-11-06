@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <div id="divForm">
+        {% if messages %}
+
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div id="retangulo">
+            <p>Por favor preencha todos os campos</p>
+            <form name="myForm" id="registerForm" method="POST">
+                {% csrf_token %}
+
+                <input class="fieldForm" type="text" name="username" id="username" placeholder="Username" required>
+                <input class="fieldForm" id="mail" type="email" name="email" placeholder="E-mail" required>
+                <input class="fieldForm" id="pass" type="password" name="password1" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" title="Pelo menos um número e uma letra maiúscula, e pelo menos 8 ou mais caracteres" required>
+                <input class="fieldForm" id="pass2" type="password" name="password2" placeholder="Repetir a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" title="Pelo menos um número e uma letra maiúscula, e pelo menos 8 ou mais caracteres" required>
+                <button type="submit" id="botaoRegister" onclick="validateAndSend()">Criar conta</button>
+                <!--<button id="botaoRegister">Criar conta<input type="submit" hidden></button>-->
+            </form>
+        </div>
+    </div>
+    <div class="terceiroBloco">
+        <div class="newsletter">
+            <h1>Subscreva à nossa newsletter</h1>
+            <h5>Esteja sempre a par de todas as atualizações e novidades!</h5>
+            <div class="in">
+                <form action="/index/" method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="E-mail">
+                <button  type="submit" href="#" class="button-subscrever">Subscrever</button>
+                </form>
+                <p>Ao clicar em  “Subscrever” declara que lê e aceita a política de privacidade e autorizo o tratamento de
+                    dados para o envio de comunicações*</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quartoBloco">
+        <h1>Os nossos clientes falam</h1>
+        <h4>Trabalhamos com vários clientes por todo o país!</h4>
+        <div class="comentarios">
+            <div class="comentarios1">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>(Adicionar Base de dados -> comentarios) (limitar a x varchar)</p>
+                <div class="dadosPerfil">
+                    <img src="{% static 'images/FotoPerfilExemplo.svg'%}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>Nome</h4>
+                    <h5>Tipo</h5>
+                </div>
+            </div>
+            <div class="comentarios2">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>(Adicionar Base de dados -> comentarios)(limitar a x varchar)</p>
+                <div class="dadosPerfil">
+                    <img src="{% static 'images/FotoPerfilExemplo.svg'%}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>Nome</h4>
+                    <h5>Tipo</h5>
+                </div>
+            </div>
+            <div class="comentarios3">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>(Adicionar Base de dados -> comentarios)(limitar a x varchar)</p>
+                <div class="dadosPerfil">
+                    <img src="{% static 'images/FotoPerfilExemplo.svg'%}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>Nome</h4>
+                    <h5>Tipo</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="popup2" class="overlay">
+	<div class="popup bred">
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			Conta criada sem sucesso. Username já em uso.
+		</div>
+	</div>
+</div>
+
+<div id="popup3" class="overlay">
+	<div class="popup bred">
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			As senhas têm de coincidir!
+		</div>
+	</div>
+</div>
+
+<script>
+function validateAndSend() {
+    {% for user in utilizadores %}
+        if(document.getElementById("username").value === "{{user.user_id}}") {
+            location.href = "#popup2";
+        }
+    {% endfor %}
+          if(document.getElementById("pass").value !== document.getElementById("pass2").value) {
+                location.href = "#popup3";
+            }
+
+}
+</script>
+
+{% endblock content %}

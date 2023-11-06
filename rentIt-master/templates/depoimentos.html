@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/depoimentos.css' %}">
+
+    <div id="estado">
+       {% if userLogged %}
+      <h2>Diga-nos o que pensa acerca do nosso website!</h2>
+      <br>
+        <form method="post">
+            {% csrf_token %}
+      <textarea class="inputstyle" name="comentario" id="mensagem" minlength="5" maxlength="400" placeholder=" Comentário" required></textarea>
+      <br>
+      <button class="ver" type="submit">Fazer review</button>
+            </form>
+    {% else %}
+           <h2>Registe-se no nosso website para poder escrever um depoimento!</h2>
+
+    {% endif %}
+    </div>
+
+    <div class="quartoBloco">
+        <a href="/depoimentos"><h1>Os nossos clientes falam</h1></a>
+        <h4>Trabalhamos com vários clientes por todo o país!</h4>
+        <div class="comentarios">
+            {% for testimonial in testimonials %}
+            <div class="comentarios1">
+                <img src="{% static 'images/comentarioCard.png'%}" alt="comentarioCard" class="cardimg">
+                <p>{{ testimonial.comentario }}</p>
+                <div class="dadosPerfil">
+                    <img src="{{ testimonial.user_id.foto.url }}" alt="fotoperfilCard" class="fotoimg">
+                    <h4>{{ testimonial.user_id.nome }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+

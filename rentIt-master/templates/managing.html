@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/managing.css' %}" xmlns="http://www.w3.org/1999/html">
+    <div class="estado">
+        <div class="content1">
+            <h2>Estado: {% if habitacao.estado %} Ativo {% else %} Inativo {% endif %} </h2>
+
+            <img src="{{ habitacao.foto.url }}" class="imgs2">
+        </div>
+
+        <div class="content2">
+
+            <h2>{{ habitacao.titulo }} <img src="{% static 'images/message.png'%}" alt="message" class="iconMess"></h2>
+            <p id="descricaop">{{ habitacao.descricao }}</p>
+            <p>{{ habitacao.preco|floatformat:2 }}€ p/dia</p>
+            <form action="{% url 'editHabitacao' habitacao.hab_id %}" method="get">
+            <button class="button editar">Editar<input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+            </form>
+
+        </div>
+    </div>
+<div id="gestao">
+    <h2>Gestão</h2>
+    <div>
+        <br>
+        <h3>Inquilinos atuais</h3>
+        {% if habita %}
+         <div id="gridInquilinos">
+        {% for h in habita %}
+        <div id="inquilino1">
+            <img class="profile1" src="{{ h.inquilino_id.user_id.foto.url }}">
+            <div class="info">
+                <p id="nome1">{{ h.inquilino_id.user_id.nome }}</p>
+                <form method="post">
+                    {% csrf_token %}
+
+                <p id="imgP1"><button id="mensagem" type="submit" name="msg" value="{{ h.inquilino_id.user_id.user_id }}"></button><img class="mess1" src="{% static 'images/chat.png' %}"></p>
+                </form>
+                <p id="dataEntrada">{{ h.desde }}</p>
+                <p id="dataSaida1">{{ h.ate }}</p>
+                <form name="MyFormEliminarInquilino" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="habitado" value="{{ h.habitado_id }}" hidden>
+                    <button id="eliminar1" name="eliminar" value="{{ h.inquilino_id.user_id }}">Eliminar inquilino</button>
+
+                    <input id="pagamento1" type="button" value="Notificar pagamento em atraso">
+                </form>
+            </div>
+        </div>
+         {% endfor %}
+        </div>
+        {% else %}
+        <h4> Ainda não tem nenhum inquilino.</h4>
+        {% endif %}
+    </div>
+    <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Pedidos para arrendar</h2>
+        <div class="arrendar">
+           {% if pedidos %}
+            {% for pedido in pedidos %}
+            <div id="arrendamento1">
+
+                <img class="profile1" src="{{ pedido.user_id.foto.url }}">
+                <div class="info">
+                    <p id="nome1"><b>Inquilino</b>: {{ pedido.user_id.nome }}</p>
+
+                    <p id="dataEntrada1"><b>Data de entrada</b>: {{ pedido.data_entrada }}</p>
+                    <p id="dataSaida1"><b>Data de saída</b>: {{ pedido.data_saida }}</p>
+                    <p id="nHospedes1"><b>Nº de hóspedes</b>: {{ pedido.n_hospedes }}</p>
+
+                    <form name="myForm" method="post">
+                        {% csrf_token %}
+                        <input name="pedidoId" value="{{ pedido.pedido_id }}" hidden>
+                        <p>Por favor insira um dia do mês para ser o dia de pagamento:<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="pagamento" min="1" max="31" maxlength="2" required></p>
+                        <input id="aceitar1" class="x" type="radio" name="estado" value="Aceite" required>
+                        <label for="aceitar1">Aceitar</label>
+
+                        <input id="recusar1" class="x" type="radio" name="estado" value="Recusado" required>
+                        <label for="recusar1">Recusar</label>
+                        <br>
+                        <br>
+
+                        <input class="editar" id="submeter" type="submit" placeholder="Submeter">
+                    </form>
+                </div>
+
+            </div>
+             {% endfor %}
+               </div>
+        {% else %}
+               <h3> Não tem pedidos pendentes.</h3>
+        {% endif %}
+
+        </div>
+    </div>
+       <!-- <div id="popup1" class="overlay">
+            <div class="popup">
+                <button type="submit" class="close" href="#">&times;</button>
+                <div class="content">
+                    Pedido de inquilino aceite <img src="{% static 'images/aceite.png'%}">
+                </div>
+            </div>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <button type="submit" class="close" href="#">&times;</button>
+                <div class="content">
+                    Pedido de inquilino recusado <img src="{% static 'images/recusado.png'%}">
+                </div>
+            </div>
+        </div>
+
+
+                     <div id="popup-eliminar-inquilino" class="modal">
+                      <div class="modal-content">
+                        <button name="eliminar" class="close">&times;</button>
+                        <p>Inquilino eliminado <img src="{% static 'images/recusado.png'%}"></p>
+                      </div>
+                    </div>
+
+        -->
+
+</div>
+
+
+{% endblock content %}

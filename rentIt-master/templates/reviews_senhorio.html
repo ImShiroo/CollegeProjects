@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/reviews.css' %}">
+
+<div class="comentarios">
+    <h2>Reviews do alojamento {{ habitacao.titulo }}</h2>
+<img id="foto" src="{{ habitacao.foto.url }}">
+    <h2>Comentários({{ comentarios_count }})</h2>
+    {% if comentarios_count > 0 %}
+        <div id="todos_comentarios">
+            {% for comentarioo in dados_com %}
+            <div id="comentario1">
+                <p id="nomeinq"><img class="img1" src="{{ comentarioo.inquilino_id.foto.url }}"> {{comentarioo.inquilino_id.nome}}</p>
+                <div class="info1">
+                    <div id="titulo1"><p><b>{{comentarioo.nome}}</b></p></div>
+                    <div class="avaliacoes">Limpeza: {{comentarioo.limpeza}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Senhorio: {{comentarioo.senhorio}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Vizinhanca: {{comentarioo.vizinhanca}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div class="avaliacoes">Inquilinos: {{comentarioo.inquilino}}<img class="star" src="{% static 'images/star.png' %}"></div>
+                    <div id="descricao1"><p>{{comentarioo.comentario}}</p></div>
+                </div>
+            </div>
+
+        {% endfor %}
+         </div>
+        </div>
+    {% else %}
+        <div id="comentario1">
+            <p>Ainda não tem comentários.</p>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/alojamentos.css' %}">
+
+
+<div class="content">
+<div class="extra">
+<div class="pesquisa">
+
+
+    <img src="{% static 'images/lupa.svg'%}" alt="search" class="searchimg search">
+    <form action="{% url 'alojamentos' %}" method="get">
+        <input type="text" class="inputstyle pesquisar" placeholder="Pesquise alojamentos" name="search">
+        <br>
+        <br>
+        <input type="submit" id="procurar" value="Procurar" />
+    </form>
+    <div class="dropdown">
+        <img src="{% static 'images/filtro.svg'%}" onclick="myFunction();" alt="funnel" class="searchimg filtro dropbtn">
+        <div id="myDropdown" class="dropdown-content">
+            <form action="{% url 'alojamentos' %}" method="get" id="form_search">
+                <h4>Filtros</h4>
+                <div class="slidecontainer">
+                    <label for="myRange">Preço</label><br>
+                    <br>
+                    Máximo: <input type="number" min="20" max="900" id="myRange" name="preco"> € p/dia
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="opcoes">
+                    <div id="tipo">
+                    <div class="item">
+                        <input type="checkbox" id="apartamento" name="tipo" value="Apartamento" class="regular-checkbox o">
+                        <label class="size" for="apartamento">Apartamento</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="vivenda" name="tipo" value="Vivenda" class="regular-checkbox o">
+                        <label class="size" for="vivenda">Vivenda</label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="quarto" name="tipo" value="Quarto" class="regular-checkbox o">
+                        <label class="size" for="quarto">Quarto</label><br>
+                    </div>
+                </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div id="extras">
+                        <div class="item bed margin-t">
+                            <img id="bedroom" src="{% static 'images/bedroom.png'%}" alt="bedroom" class="icon">
+                            <p id="bedroomText" class="text">quartos</p>
+                            <input type="number" min="1" name="quartos" class="quantidade inputstyle" >
+                        </div>
+
+                         <div class="item wc margin-t">
+                            <img id="wc" src="{% static 'images/wc.png'%}" alt="wc" class="icon">
+                            <p id="wcText" class="text">casas de banho</p>
+                            <input type="number" name="wc" min="1" class="quantidade inputstyle">
+                         </div>
+                        <div class="item wifi margin-t">
+                             <img id="wifi"  src="{% static 'images/wifi.png'%}" alt="wifi" class="icon">
+                            <p id="wifiText" class="text">WiFi</p>
+                            <label class="switch"><input name="wifi" type="checkbox"><span class="slider round"></span></label>
+                        </div>
+                        <div class="item fumador margin-t">
+                                <img id="smoker" src="{% static 'images/smoker.png'%}" alt="smoker" class="icon">
+                                <p id="smokerText" class="text">fumador</p>
+                                <label class="switch"><input name="fumador" type="checkbox"><span class="slider round"></span></label>
+                        </div>
+                          <div class="item pets margin-t">
+                              <img id="pets" src="{% static 'images/pets.png'%}" alt="pets" class="icon">
+                              <p id="petsText" class="text">animais de estimação</p>
+                              <label class="switch"><input name="animais" type="checkbox"><span class="slider round" ></span></label>
+                          </div>
+                        <div class="item cooker margin-t">
+                            <img id="cooker" src="{% static 'images/cooker.png'%}" alt="cooker" class="icon">
+                            <p id="cookerText" class="text">fogão</p>
+                            <label class="switch"><input name="fogao" type="checkbox"><span class="slider round"></span></label>
+                        </div>
+                        <div class="item fridge margin-t">
+                            <img id="fridge" src="{% static 'images/fridge.png'%}" alt="fridge" class="icon">
+                            <p id="fridgeText" class="text">frigorífico</p>
+                            <label class="switch"><input name="frigorifico" type="checkbox"><span class="slider round"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <input type="submit" id="filtrar" value="Filtrar" />
+                <input type="submit" id="remover" value="Remover filtros" />
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+<script>var casas= {}</script>
+<div class ="gridAlojamentos">
+{% for alojamento in filters %}
+{% if alojamento.estado %}
+<script>
+    casas[{{alojamento.hab_id }}] = {titulo: "{{alojamento.titulo}}", preco: "{{ alojamento.preco|floatformat:2 }}", morada: "{{ alojamento.morada }}", imagem: "{{ alojamento.foto.url }}" };
+</script>
+<div class="coluna">
+<form method="post">
+{% csrf_token %}
+{% if alojamento.hab_id in casasFav %}
+<button id="removerfavoritos" type="submit" name="remover" value="{{ alojamento.hab_id }}">Remover dos favoritos</button>
+{% else %}
+<button id="favoritar" type="submit" name="adicionar" value="{{ alojamento.hab_id }}">Adicionar aos favoritos</button>
+{% endif %}
+</form>
+<form action="{% url 'verAlojamento' alojamento.hab_id %}" method="get">
+<button><img src="{{ alojamento.foto.url }}" class="imagemAlojamento"><input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+<button><h6>{{ alojamento.titulo|truncatechars:20 }}</h6><input type="submit" hidden value="{{ habitacao.hab_id }}"></button>
+</form>
+<p class="descricao"> {{ alojamento.descricao|truncatechars:60 }} </p>
+<p class="preco"> {{ alojamento.preco|floatformat:2 }} € p/dia</p>
+</div>
+     {% endif %}
+{% endfor %}
+</div>
+
+<h1>Procure por área</h1>
+<div class="extra">
+<div class="pesquisa">
+
+<img src="{% static 'images/lupa.svg'%}" alt="search" class="searchimg search">
+<input type="text" id="morada" class="inputstyle pesquisar" placeholder="Introduza uma morada">
+
+</div>
+</div>
+<div id="mapaGoogle">
+
+
+</div>
+</div>
+    <script>
+     var morada = function() {
+     var location_input = document.getElementById('morada');
+     var autocomplete = new google.maps.places.Autocomplete(location_input);
+ }
+
+
+      function initMap() {
+
+        const uluru = { lat: 38.770896, lng: -9.096425 };
+
+        const map = new google.maps.Map(document.getElementById("mapaGoogle"), {
+          zoom: 7,
+          center: uluru,
+        });
+
+        const geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map);
+
+
+      }
+
+
+    function geocodeAddress(geocoder, resultsMap) {
+        for(let casaId in casas) {
+            let casa = casas[casaId];
+            const address = casa.morada;
+            var url = '/verAlojamento/' + casaId;
+            console.log(url);
+            const contentString =
+                '<div id="infoWindow">' +
+                '<form action="'+ url + '" method="get">' +
+                '<button class="buttonInfoWindow"><img src=' + casa.imagem + ' class="imagemInfoWindow">' +
+                '<p id="tituloInfoWindow">' + casa.titulo + '</p> </button>' +
+                '</form>' +
+                '<p class="precoInfoWindow">' + casa.preco + '€ p/dia</p>' +
+                '</div>';
+
+
+            geocoder.geocode({address: address}, (results, status) => {
+                if (status === "OK") {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                     });
+                     const marker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: resultsMap,
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(resultsMap,marker);
+                     });
+                    const input = document.getElementById("morada");
+                    const autocomplete = new google.maps.places.Autocomplete(input);
+                    autocomplete.addListener("place_changed", () => {
+                        infowindow.close();
+                        var place = autocomplete.getPlace();
+                        resultsMap.setCenter(place.geometry.location);
+                        resultsMap.setZoom(17);
+
+                        });
+
+                }
+
+                else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+    }
+
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    function x(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+
+  </script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIj4fz-0lwLlCZ06XXkN5FMntRBkxBi18&callback=initMap&libraries=places&v=weekly">
+
+    </script>
+{% endblock content %}
